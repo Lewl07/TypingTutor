@@ -25,7 +25,7 @@ public class App extends Application {
         
         String[] r1Keys = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
         String[] r2Keys = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
-        String[] r3Keys = {"Z", "X", "C", "V", "B", "N", "M"};
+        String[] r3Keys = {"Z", "X", "C", "V", "B", "N", "M", "Shift"};
         
         for (int i = 0; i < r1Keys.length; i++) {
             Button key = new Button("" + r1Keys[i]);
