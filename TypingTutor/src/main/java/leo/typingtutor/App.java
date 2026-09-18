@@ -3,9 +3,8 @@ package leo.typingtutor;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -42,7 +41,10 @@ public class App extends Application {
             r3.getChildren().add(key);
         }
         
-        vb.getChildren().addAll(r1, r2, r3);
+        TextField expectedText = new TextField("This is the text that is"
+                + "expected to be typed");
+        
+        vb.getChildren().addAll(expectedText, r1, r2, r3);
         
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
