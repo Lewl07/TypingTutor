@@ -2,6 +2,7 @@ package leo.typingtutor;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -27,17 +28,17 @@ public class App extends Application {
         String[] r3Keys = {"Z", "X", "C", "V", "B", "N", "M"};
         
         for (int i = 0; i < r1Keys.length; i++) {
-            Label key = new Label("" + r1Keys[i]);
+            Button key = new Button("" + r1Keys[i]);
             r1.getChildren().add(key);
         }
         
         for (int i = 0; i < r2Keys.length; i++) {
-            Label key = new Label("" + r2Keys[i]);
+            Button key = new Button("" + r2Keys[i]);
             r2.getChildren().add(key);
         }
         
         for (int i = 0; i < r3Keys.length; i++) {
-            Label key = new Label("" + r3Keys[i]);
+            Button key = new Button("" + r3Keys[i]);
             r3.getChildren().add(key);
         }
         
