@@ -25,6 +25,27 @@ public class App extends Application {
         String[] r1Keys = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
         String[] r2Keys = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
         String[] r3Keys = {"Z", "X", "C", "V", "B", "N", "M"};
+        
+        for (int i = 0; i < r1Keys.length; i++) {
+            Label key = new Label("" + r1Keys[i]);
+            r1.getChildren().add(key);
+        }
+        
+        for (int i = 0; i < r2Keys.length; i++) {
+            Label key = new Label("" + r2Keys[i]);
+            r2.getChildren().add(key);
+        }
+        
+        for (int i = 0; i < r3Keys.length; i++) {
+            Label key = new Label("" + r3Keys[i]);
+            r3.getChildren().add(key);
+        }
+        
+        vb.getChildren().addAll(r1, r2, r3);
+        
+        Scene scene = new Scene(vb, 600, 400);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {
