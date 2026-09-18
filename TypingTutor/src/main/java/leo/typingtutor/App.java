@@ -41,10 +41,13 @@ public class App extends Application {
             r3.getChildren().add(key);
         }
         
-        TextField expectedText = new TextField("This is the text that is"
+        TextField expectedText = new TextField("This is the text that is "
                 + "expected to be typed");
+
+
+        TextField typedResponse = new TextField();
         
-        vb.getChildren().addAll(expectedText, r1, r2, r3);
+        vb.getChildren().addAll(expectedText, typedResponse, r1, r2, r3);
         
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
