@@ -63,6 +63,7 @@ public class App extends Application {
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
         stage.show();
+        vb.requestFocus();
         
         // Displays the key typed
         scene.setOnKeyPressed(event -> {
