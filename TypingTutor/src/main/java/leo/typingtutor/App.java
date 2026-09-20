@@ -57,7 +57,7 @@ public class App extends Application {
         TextField typedResponse = new TextField();
         
         vb.getChildren().addAll(expectedText, typedResponse, keyTyped, r1, r2, r3);
-        
+
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
         stage.show();
@@ -65,10 +65,13 @@ public class App extends Application {
         // Displays the key typed
         scene.setOnKeyPressed(event -> {
             KeyCode keyCode = event.getCode();
-            keyTyped.setText("" + keyCode);
+            keyTyped.setText(keyCode.getName());
             
-            stage.setScene(scene);
-            stage.show();
+            // The key becomes green when pressed
+            Button btn = keyMap.get(keyCode.getName());
+            if (btn != null) {
+                btn.setStyle("-fx-background-color: lightgreen;");
+            }
         });
     }
 
