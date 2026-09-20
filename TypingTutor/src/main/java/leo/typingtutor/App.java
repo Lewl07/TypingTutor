@@ -1,5 +1,7 @@
 package leo.typingtutor;
 
+import java.util.HashMap;
+import java.util.Map;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,23 +28,28 @@ public class App extends Application {
         
         Label keyTyped = new Label();
         
+        Map<String, Button> keyMap = new HashMap<>();
+        
         String[] r1Keys = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
         String[] r2Keys = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
         String[] r3Keys = {"Z", "X", "C", "V", "B", "N", "M", "Shift"};
         
-        for (int i = 0; i < r1Keys.length; i++) {
-            Button key = new Button("" + r1Keys[i]);
-            r1.getChildren().add(key);
+        for (String key : r1Keys) {
+            Button keyBtn = new Button(key);
+            keyMap.put(key, keyBtn);
+            r1.getChildren().add(keyBtn);
         }
         
-        for (int i = 0; i < r2Keys.length; i++) {
-            Button key = new Button("" + r2Keys[i]);
-            r2.getChildren().add(key);
+        for (String key : r2Keys) {
+            Button keyBtn = new Button(key);
+            keyMap.put(key, keyBtn);
+            r2.getChildren().add(keyBtn);
         }
         
-        for (int i = 0; i < r3Keys.length; i++) {
-            Button key = new Button("" + r3Keys[i]);
-            r3.getChildren().add(key);
+        for (String key : r3Keys) {
+            Button keyBtn = new Button(key);
+            keyMap.put(key, keyBtn);
+            r3.getChildren().add(keyBtn);
         }
         
         TextField expectedText = new TextField("This is the text that is "
