@@ -58,7 +58,7 @@ public class App extends Application {
         TextField typedResponse = new TextField();
         
         vb.getChildren().addAll
-        (expectedText, typedResponse, keyTyped, r1, r2, r3);
+        (expectedText, typedResponse, keyTyped, r1, r2, r3, next);
 
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
