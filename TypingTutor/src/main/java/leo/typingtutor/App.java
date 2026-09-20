@@ -71,7 +71,11 @@ public class App extends Application {
             // The key becomes green when pressed
             Button btn = keyMap.get(keyCode.getName());
             if (btn != null) {
+                keyTyped.setStyle("");
                 btn.setStyle("-fx-background-color: lightgreen;");
+            } else {
+                keyTyped.setText("Not handled");
+                keyTyped.setStyle("-fx-text-fill: red;");     
             }
         });
         
@@ -81,6 +85,7 @@ public class App extends Application {
             Button btn = keyMap.get(keyCode.getName());
             if (btn != null) {
                 btn.setStyle("");
+                keyTyped.setStyle("");
             }
         });
     }
