@@ -73,6 +73,15 @@ public class App extends Application {
                 btn.setStyle("-fx-background-color: lightgreen;");
             }
         });
+        
+        scene.setOnKeyReleased(event -> {
+            KeyCode keyCode = event.getCode();
+            
+            Button btn = keyMap.get(keyCode.getName());
+            if (btn != null) {
+                btn.setStyle("");
+            }
+        });
     }
 
     public static void main(String[] args) {
