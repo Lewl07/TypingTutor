@@ -27,6 +27,7 @@ public class App extends Application {
         HBox r3 = new HBox(10);
         
         Label keyTyped = new Label();
+        Button next = new Button("Next");
         
         Map<String, Button> keyMap = new HashMap<>();
         
