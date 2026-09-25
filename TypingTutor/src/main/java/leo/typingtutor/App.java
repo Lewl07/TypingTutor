@@ -37,24 +37,31 @@ public class App extends Application {
         
         for (String key : r1Keys) {
             Button keyBtn = new Button(key);
+            keyBtn.setFocusTraversable(false);
             keyMap.put(key, keyBtn);
             r1.getChildren().add(keyBtn);
         }
         
         for (String key : r2Keys) {
             Button keyBtn = new Button(key);
+            keyBtn.setFocusTraversable(false);
             keyMap.put(key, keyBtn);
             r2.getChildren().add(keyBtn);
         }
         
         for (String key : r3Keys) {
             Button keyBtn = new Button(key);
+            keyBtn.setFocusTraversable(false);
             keyMap.put(key, keyBtn);
             r3.getChildren().add(keyBtn);
         }
         
         TextField expectedText = new TextField("This is the text that is "
                 + "expected to be typed");
+        
+        expectedText.setEditable(false);
+        expectedText.setFocusTraversable(false);
+        
         TextField typedResponse = new TextField();
         
         vb.getChildren().addAll
@@ -63,13 +70,13 @@ public class App extends Application {
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
         stage.show();
-        vb.requestFocus();
+        typedResponse.requestFocus();
         
         // Displays the key typed
         scene.setOnKeyPressed(event -> {
             KeyCode keyCode = event.getCode();
             keyTyped.setText(keyCode.getName());
-            
+                        
             // The key becomes green when pressed
             Button btn = keyMap.get(keyCode.getName());
             if (btn != null) {
