@@ -61,6 +61,7 @@ public class App extends Application {
         
         expectedText.setEditable(false);
         expectedText.setFocusTraversable(false);
+        expectedText.setMouseTransparent(true);
         
         TextField typedResponse = new TextField();
         
