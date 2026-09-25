@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -74,7 +75,7 @@ public class App extends Application {
         typedResponse.requestFocus();
         
         // Displays the key typed
-        scene.setOnKeyPressed(event -> {
+        scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
             KeyCode keyCode = event.getCode();
             keyTyped.setText(keyCode.getName());
                         
@@ -89,7 +90,7 @@ public class App extends Application {
             }
         });
         
-        scene.setOnKeyReleased(event -> {
+        scene.addEventFilter(KeyEvent.KEY_RELEASED, event -> {
             KeyCode keyCode = event.getCode();
             
             Button btn = keyMap.get(keyCode.getName());
