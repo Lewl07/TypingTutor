@@ -77,11 +77,12 @@ public class App extends Application {
         // Backspace button
         Button backSpaceBtn = new Button("<---");
         backSpaceBtn.setFocusTraversable(false);
+        backSpaceBtn.setPrefWidth(50);
         keyMap.put(KeyCode.BACK_SPACE.getName(), backSpaceBtn);
         
         HBox space = new HBox(10);
         space.getChildren().add(spaceBtn);
-        r1.getChildren().add(backSpaceBtn);
+        r0.getChildren().add(backSpaceBtn);
      
         TextField expectedText = new TextField("This is the text that is "
                 + "expected to be typed");
