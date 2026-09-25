@@ -25,6 +25,7 @@ public class App extends Application {
     public void start(Stage stage) {
         VBox vb = new VBox(10);
         
+        HBox r0 = new HBox(10);
         HBox r1 = new HBox(10);
         HBox r2 = new HBox(10);
         HBox r3 = new HBox(10);
@@ -34,9 +35,17 @@ public class App extends Application {
         
         Map<String, Button> keyMap = new HashMap<>();
         
+        String[] nums = {"1", "2", "3", "4", "5", "6", "7" , "8", "9", "0"};
         String[] r1Keys = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
         String[] r2Keys = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
         String[] r3Keys = {"Z", "X", "C", "V", "B", "N", "M", "Shift"};
+        
+        for (String key : nums) {
+            Button keyBtn = new Button(key);
+            keyBtn.setFocusTraversable(false);
+            keyMap.put(key, keyBtn);
+            r0.getChildren().add(keyBtn);
+        }
         
         for (String key : r1Keys) {
             Button keyBtn = new Button(key);
@@ -84,7 +93,7 @@ public class App extends Application {
         TextField typedResponse = new TextField();
         
         vb.getChildren().addAll
-        (expectedText, typedResponse, keyTyped, r1, r2, r3, space, next);
+        (expectedText, typedResponse, keyTyped, r0, r1, r2, r3, space, next);
 
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
