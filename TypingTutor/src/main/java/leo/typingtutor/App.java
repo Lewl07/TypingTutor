@@ -62,7 +62,7 @@ public class App extends Application {
         // Space button
         Button spaceBtn = new Button("Space");
         spaceBtn.setFocusTraversable(false);
-        spaceBtn.setPrefWidth(200);
+        spaceBtn.setPrefWidth(250);
         keyMap.put(KeyCode.SPACE.getName(), spaceBtn);
         
         // Backspace button
