@@ -73,7 +73,6 @@ public class App extends Application {
         HBox space = new HBox(10);
         space.getChildren().add(spaceBtn);
         r1.getChildren().add(backSpaceBtn);
-        
      
         TextField expectedText = new TextField("This is the text that is "
                 + "expected to be typed");
