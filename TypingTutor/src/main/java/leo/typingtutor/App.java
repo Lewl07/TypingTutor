@@ -19,6 +19,15 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
+    private final String[] sampleTexts = {
+        "Try typing this text. Do it as quickly and accurately as you can.",
+        "Next type another line of input data.",
+        "The quick brown fox jumps over the lazy dog.",
+        "Five big quacking zephyrs jolt my wax bed.",
+        "Sympathizing would fix Quaker objectives.",
+        "A large fawn jumped quickly over white zinc boxes."
+    };
+    
     private int idx = 0;
     
     @Override
