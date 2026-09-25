@@ -19,6 +19,8 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
+    private int idx = 0;
+    
     @Override
     public void start(Stage stage) {
         VBox vb = new VBox(10);
