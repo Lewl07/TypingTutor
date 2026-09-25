@@ -66,12 +66,13 @@ public class App extends Application {
         keyMap.put(KeyCode.SPACE.getName(), spaceBtn);
         
         // Backspace button
-        Button backspaceBtn = new Button("Backspace");
-        backspaceBtn.setFocusTraversable(false);
-        keyMap.put(KeyCode.BACK_SPACE.getName(), backspaceBtn);
+        Button backSpaceBtn = new Button("Backspace");
+        backSpaceBtn.setFocusTraversable(false);
+        keyMap.put(KeyCode.BACK_SPACE.getName(), backSpaceBtn);
         
         HBox space = new HBox(10);
         space.getChildren().add(spaceBtn);
+        
      
         TextField expectedText = new TextField("This is the text that is "
                 + "expected to be typed");
