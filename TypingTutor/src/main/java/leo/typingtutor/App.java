@@ -41,6 +41,7 @@ public class App extends Application {
         
         Label keyTyped = new Label();
         Button next = new Button("Next");
+        Label progress = new Label();
         
         Map<String, Button> keyMap = new HashMap<>();
         
@@ -109,6 +110,8 @@ public class App extends Application {
         stage.setScene(scene);
         stage.show();
         typedResponse.requestFocus();
+        
+        progress.setText((idx + 1) + " of " + sampleTexts.length);
         
         // Displays the key typed
         scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
