@@ -69,6 +69,9 @@ public class App extends Application {
         Button backspaceBtn = new Button("Backspace");
         backspaceBtn.setFocusTraversable(false);
         keyMap.put(KeyCode.BACK_SPACE.getName(), backspaceBtn);
+        
+        HBox space = new HBox(10);
+        space.getChildren().add(spaceBtn);
      
         TextField expectedText = new TextField("This is the text that is "
                 + "expected to be typed");
@@ -80,7 +83,7 @@ public class App extends Application {
         TextField typedResponse = new TextField();
         
         vb.getChildren().addAll
-        (expectedText, typedResponse, keyTyped, r1, r2, r3, next);
+        (expectedText, typedResponse, keyTyped, r1, r2, r3, space, next);
 
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
