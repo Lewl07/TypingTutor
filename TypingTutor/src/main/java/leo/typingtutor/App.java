@@ -59,6 +59,12 @@ public class App extends Application {
             r3.getChildren().add(keyBtn);
         }
         
+        // Space button
+        Button spaceBtn = new Button("Space");
+        spaceBtn.setFocusTraversable(false);
+        spaceBtn.setPrefWidth(200);
+        keyMap.put(KeyCode.SPACE.getName(), spaceBtn);
+     
         TextField expectedText = new TextField("This is the text that is "
                 + "expected to be typed");
         
