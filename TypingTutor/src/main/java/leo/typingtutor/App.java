@@ -113,7 +113,7 @@ public class App extends Application {
         progress.setText((idx + 1) + " of " + sampleTexts.length);
         
         next.setOnAction(e -> {
-            idx = (idx + 1);
+            idx = (idx + 1) % sampleTexts.length;
             expectedText.setText(sampleTexts[idx]);
             typedResponse.clear();
             progress.setText((idx + 1) + " of " + sampleTexts.length);
