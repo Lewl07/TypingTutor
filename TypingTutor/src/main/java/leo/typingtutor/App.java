@@ -66,7 +66,7 @@ public class App extends Application {
         keyMap.put(KeyCode.SPACE.getName(), spaceBtn);
         
         // Backspace button
-        Button backSpaceBtn = new Button("Backspace");
+        Button backSpaceBtn = new Button("<---");
         backSpaceBtn.setFocusTraversable(false);
         keyMap.put(KeyCode.BACK_SPACE.getName(), backSpaceBtn);
         
