@@ -94,8 +94,7 @@ public class App extends Application {
         space.getChildren().add(spaceBtn);
         r0.getChildren().add(backSpaceBtn);
      
-        TextField expectedText = new TextField("This is the text that is "
-                + "expected to be typed");
+        TextField expectedText = new TextField(sampleTexts[idx]);
         
         expectedText.setEditable(false);
         expectedText.setFocusTraversable(false);
@@ -112,6 +111,15 @@ public class App extends Application {
         typedResponse.requestFocus();
         
         progress.setText((idx + 1) + " of " + sampleTexts.length);
+        
+        next.setOnAction(e -> {
+            idx = (idx + 1);
+            expectedText.setText(sampleTexts[idx]);
+            typedResponse.clear();
+            progress.setText((idx + 1) + " of " + sampleTexts.length);
+            keyTyped.setText("");
+            typedResponse.requestFocus();
+        });
         
         // Displays the key typed
         scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
