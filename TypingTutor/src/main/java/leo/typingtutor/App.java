@@ -32,7 +32,7 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) {
-        VBox vb = new VBox(10);
+        VBox root = new VBox(10);
         
         HBox r0 = new HBox(10);
         HBox r1 = new HBox(10);
@@ -128,11 +128,11 @@ public class App extends Application {
         typedResponse.textProperty().addListener((obs, oldVal, newVal) ->
                 updateKeystrokeStats(stats, newVal, expectedText.getText()));
         
-        vb.getChildren().addAll
+        root.getChildren().addAll
         (expectedText, typedResponse, keyTyped, r0, r1, r2, r3, space, rowNext,
                 rowReset, stats);
 
-        Scene scene = new Scene(vb, 600, 400);
+        Scene scene = new Scene(root, 600, 400);
         stage.setScene(scene);
         stage.show();
         typedResponse.requestFocus();
