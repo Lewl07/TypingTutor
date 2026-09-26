@@ -58,6 +58,7 @@ public class App extends Application {
         // Instantly shows what user just typed, e.g. typing "A" would
         // display "A"
         Label keyTyped = new Label();
+        keyTyped.setAlignment(Pos.CENTER);
         
         // A label that shows how accurate the words typed by user are
         Label stats = new Label();
@@ -166,7 +167,7 @@ public class App extends Application {
         // Adding every HBox (rows with keys, next and reset buttons, and stats)
         // in VBox (which is the root)
         root.getChildren().addAll
-        (expectedText, typedResponse, keyTyped, r0, r1, r2, r3, space, rowNext,
+        (expectedText, typedResponse, keyTyped, keyboard, rowNext,
                 rowReset, stats);
 
         Scene scene = new Scene(root, 600, 400);
