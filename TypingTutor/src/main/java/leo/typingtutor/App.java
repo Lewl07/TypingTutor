@@ -38,11 +38,15 @@ public class App extends Application {
         HBox r1 = new HBox(10);
         HBox r2 = new HBox(10);
         HBox r3 = new HBox(10);
+        HBox rowNext = new HBox(10);
+        HBox rowReset = new HBox(10);
         
         Label keyTyped = new Label();
+        
         Button next = new Button("Next");
         Label progress = new Label();
-        
+        rowNext.getChildren().addAll(next, progress);
+
         Map<String, Button> keyMap = new HashMap<>();
         
         String[] nums = {"1", "2", "3", "4", "5", "6", "7" , "8", "9", "0"};
@@ -119,7 +123,7 @@ public class App extends Application {
         TextField typedResponse = new TextField();
         
         vb.getChildren().addAll
-        (expectedText, typedResponse, keyTyped, r0, r1, r2, r3, space, next);
+        (expectedText, typedResponse, keyTyped, r0, r1, r2, r3, space, rowNext);
 
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
