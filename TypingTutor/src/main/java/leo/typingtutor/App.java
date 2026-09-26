@@ -46,6 +46,9 @@ public class App extends Application {
         Button next = new Button("Next");
         Label progress = new Label();
         rowNext.getChildren().addAll(next, progress);
+        
+        Button reset = new Button("Reset");
+        rowReset.getChildren().add(reset);
 
         Map<String, Button> keyMap = new HashMap<>();
         
@@ -123,7 +126,8 @@ public class App extends Application {
         TextField typedResponse = new TextField();
         
         vb.getChildren().addAll
-        (expectedText, typedResponse, keyTyped, r0, r1, r2, r3, space, rowNext);
+        (expectedText, typedResponse, keyTyped, r0, r1, r2, r3, space, rowNext,
+                rowReset);
 
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
@@ -134,6 +138,15 @@ public class App extends Application {
         
         next.setOnAction(e -> {
             idx = (idx + 1) % sampleTexts.length;
+            expectedText.setText(sampleTexts[idx]);
+            typedResponse.clear();
+            progress.setText((idx + 1) + " of " + sampleTexts.length);
+            keyTyped.setText("");
+            typedResponse.requestFocus();
+        });
+        
+        reset.setOnAction(e -> {
+            idx = 0;
             expectedText.setText(sampleTexts[idx]);
             typedResponse.clear();
             progress.setText((idx + 1) + " of " + sampleTexts.length);
