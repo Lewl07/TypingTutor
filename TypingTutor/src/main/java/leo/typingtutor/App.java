@@ -33,6 +33,7 @@ public class App extends Application {
         "A large fawn jumped quickly over white zinc boxes."
     };
     
+    // Used to track which text sample the user is currently at
     private int idx = 0;
     
     @Override
