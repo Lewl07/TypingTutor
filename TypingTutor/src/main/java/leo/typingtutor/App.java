@@ -98,7 +98,7 @@ public class App extends Application {
                 r3.getChildren().add(periodBtn);
             }
             
-            if ((key != ",") && (key!= ".")) {
+            if ((!".".equals(key)) && (!",".equals(key))) {
             Button keyBtn = new Button(key);
             keyBtn.setFocusTraversable(false);
             keyMap.put(key, keyBtn);
