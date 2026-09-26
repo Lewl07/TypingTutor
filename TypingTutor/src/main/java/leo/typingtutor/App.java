@@ -124,6 +124,7 @@ public class App extends Application {
         space.getChildren().add(spaceBtn);
         r0.getChildren().add(backSpaceBtn);
      
+        // Sample text to be written by user
         TextField expectedText = new TextField(sampleTexts[idx]);
         
         // User cannot change the content from "expectedText" nor click on it
