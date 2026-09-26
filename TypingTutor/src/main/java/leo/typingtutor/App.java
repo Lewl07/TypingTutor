@@ -16,6 +16,11 @@ import javafx.stage.Stage;
 
 /**
  * JavaFX App
+ * Typing tutor: an application that helps users learn to “touch type”
+ * – i.e., type correctly without looking at the keyboard.
+ * 
+ * @author Léo Ho
+ * Git Repo link: https://github.com/Lewl07/TypingTutor.git
  */
 public class App extends Application {
 
