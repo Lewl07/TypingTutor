@@ -47,6 +47,8 @@ public class App extends Application {
         HBox rowNext = new HBox(10);
         HBox rowReset = new HBox(10);
         
+        // Instantly shows what user just typed, e.g. typing "A" would
+        // display "A"
         Label keyTyped = new Label();
         Label stats = new Label();
         
