@@ -138,6 +138,7 @@ public class App extends Application {
         // Space is added at the bottom of the keyboard, hence
         // it has its own row
         HBox space = new HBox(10);
+        space.setAlignment(Pos.CENTER);
         space.getChildren().add(spaceBtn);
         r0.getChildren().add(backSpaceBtn);
      
