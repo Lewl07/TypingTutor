@@ -84,14 +84,14 @@ public class App extends Application {
         
         // Here comma and period are in row 3 and require if statements
         for (String key : r3Keys) {
-            if (key == ",") {
+            if (",".equals(key)) {
                 Button commaBtn = new Button(",");
                 commaBtn.setFocusTraversable(false);
                 keyMap.put(KeyCode.COMMA.getName(), commaBtn);
                 r3.getChildren().add(commaBtn);
             }
             
-            if (key == ".") {
+            if (".".equals(key)) {
                 Button periodBtn = new Button(".");
                 periodBtn.setFocusTraversable(false);
                 keyMap.put(KeyCode.PERIOD.getName(), periodBtn);
