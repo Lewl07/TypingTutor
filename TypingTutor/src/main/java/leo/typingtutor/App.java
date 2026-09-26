@@ -46,6 +46,7 @@ public class App extends Application {
         HBox r1 = new HBox(10);
         HBox r2 = new HBox(10);
         HBox r3 = new HBox(10);
+        HBox keyTypedRow = new HBox(10);
         HBox rowNext = new HBox(10);
         HBox rowReset = new HBox(10);
         r0.setAlignment(Pos.CENTER);
@@ -58,7 +59,8 @@ public class App extends Application {
         // Instantly shows what user just typed, e.g. typing "A" would
         // display "A"
         Label keyTyped = new Label();
-        keyTyped.setAlignment(Pos.CENTER);
+        keyTypedRow.getChildren().add(keyTyped);
+        keyTypedRow.setAlignment(Pos.CENTER);
         
         // A label that shows how accurate the words typed by user are
         Label stats = new Label();
@@ -167,7 +169,7 @@ public class App extends Application {
         // Adding every HBox (rows with keys, next and reset buttons, and stats)
         // in VBox (which is the root)
         root.getChildren().addAll
-        (expectedText, typedResponse, keyTyped, keyboard, rowNext,
+        (expectedText, typedResponse, keyTypedRow, keyboard, rowNext,
                 rowReset, stats);
 
         Scene scene = new Scene(root, 600, 400);
