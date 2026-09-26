@@ -48,7 +48,7 @@ public class App extends Application {
         String[] nums = {"1", "2", "3", "4", "5", "6", "7" , "8", "9", "0"};
         String[] r1Keys = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
         String[] r2Keys = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
-        String[] r3Keys = {"Z", "X", "C", "V", "B", "N", "M", "Shift"};
+        String[] r3Keys = {"Z", "X", "C", "V", "B", "N", "M", ",", ".", "Shift"};
         
         for (String key : nums) {
             Button keyBtn = new Button(key);
@@ -72,10 +72,26 @@ public class App extends Application {
         }
         
         for (String key : r3Keys) {
+            if (key == ",") {
+                Button commaBtn = new Button(",");
+                commaBtn.setFocusTraversable(false);
+                keyMap.put(KeyCode.COMMA.getName(), commaBtn);
+                r3.getChildren().add(commaBtn);
+            }
+            
+            if (key == ".") {
+                Button periodBtn = new Button(",");
+                periodBtn.setFocusTraversable(false);
+                keyMap.put(KeyCode.PERIOD.getName(), periodBtn);
+                r3.getChildren().add(periodBtn);
+            }
+            
+            if ((key != ",") && (key!= ".")) {
             Button keyBtn = new Button(key);
             keyBtn.setFocusTraversable(false);
             keyMap.put(key, keyBtn);
             r3.getChildren().add(keyBtn);
+            }
         }
         
         // Space button
