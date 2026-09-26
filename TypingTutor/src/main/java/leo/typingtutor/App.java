@@ -42,6 +42,7 @@ public class App extends Application {
         HBox rowReset = new HBox(10);
         
         Label keyTyped = new Label();
+        Label stats = new Label();
         
         Button next = new Button("Next");
         Label progress = new Label();
@@ -49,7 +50,7 @@ public class App extends Application {
         
         Button reset = new Button("Reset");
         rowReset.getChildren().add(reset);
-
+        
         Map<String, Button> keyMap = new HashMap<>();
         
         String[] nums = {"1", "2", "3", "4", "5", "6", "7" , "8", "9", "0"};
@@ -124,10 +125,12 @@ public class App extends Application {
         expectedText.setMouseTransparent(true);
         
         TextField typedResponse = new TextField();
+        typedResponse.textProperty().addListener((obs, oldVal, newVal) ->
+                updateKeystrokeStats(stats, newVal, expectedText.getText()));
         
         vb.getChildren().addAll
         (expectedText, typedResponse, keyTyped, r0, r1, r2, r3, space, rowNext,
-                rowReset);
+                rowReset, stats);
 
         Scene scene = new Scene(vb, 600, 400);
         stage.setScene(scene);
@@ -179,6 +182,28 @@ public class App extends Application {
                 keyTyped.setStyle("");
             }
         });
+    }
+    
+    /**
+     * Displays the correctness of the words as the user types the sample text.
+     * @param stats the stats displayed as the user types (correct and incorrect)
+     * @param typedText the typed text by user
+     * @param expectedText the text to be written by user
+     */
+    private void updateKeystrokeStats(Label stats, String typedText, String expectedText) {
+        int correct = 0;
+        int incorrect = 0;
+ 
+        for (int i = 0; i < typedText.length(); i++) {
+            if (i < expectedText.length()
+                    && typedText.charAt(i) == expectedText.charAt(i)) {
+                correct++;
+            } else {
+                incorrect++;
+            }
+        }
+ 
+        stats.setText("Correct: " + correct + "   Incorrect: " + incorrect);
     }
 
     public static void main(String[] args) {
