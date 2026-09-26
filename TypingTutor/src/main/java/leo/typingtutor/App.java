@@ -51,13 +51,16 @@ public class App extends Application {
         Button reset = new Button("Reset");
         rowReset.getChildren().add(reset);
         
+        // Map is used to retrieve the initialized keys 
         Map<String, Button> keyMap = new HashMap<>();
         
+        // Every necessary keys for the virtual keyboard
         String[] nums = {"1", "2", "3", "4", "5", "6", "7" , "8", "9", "0"};
         String[] r1Keys = {"Q", "W", "E", "R", "T", "Y", "U", "I", "O", "P"};
         String[] r2Keys = {"A", "S", "D", "F", "G", "H", "J", "K", "L"};
         String[] r3Keys = {"Z", "X", "C", "V", "B", "N", "M", ",", ".", "Shift"};
         
+        // for loops to initialize every keys of each row of the keyboard
         for (String key : nums) {
             Button keyBtn = new Button(key);
             keyBtn.setFocusTraversable(false);
@@ -79,6 +82,7 @@ public class App extends Application {
             r2.getChildren().add(keyBtn);
         }
         
+        // Here comma and period are in row 3 and require if statements
         for (String key : r3Keys) {
             if (key == ",") {
                 Button commaBtn = new Button(",");
@@ -114,20 +118,29 @@ public class App extends Application {
         backSpaceBtn.setPrefWidth(50);
         keyMap.put(KeyCode.BACK_SPACE.getName(), backSpaceBtn);
         
+        // Space is added at the bottom of the keyboard, hence
+        // it has its own row
         HBox space = new HBox(10);
         space.getChildren().add(spaceBtn);
         r0.getChildren().add(backSpaceBtn);
      
         TextField expectedText = new TextField(sampleTexts[idx]);
         
+        // User cannot change the content from "expectedText" nor click on it
         expectedText.setEditable(false);
         expectedText.setFocusTraversable(false);
         expectedText.setMouseTransparent(true);
         
+        // The text field in which the user types
         TextField typedResponse = new TextField();
+        
+        // A listener paired with updateKeystrokeStats() used in order 
+        // to display the correctness of the words typed by the user
         typedResponse.textProperty().addListener((obs, oldVal, newVal) ->
                 updateKeystrokeStats(stats, newVal, expectedText.getText()));
         
+        // Adding every HBox (rows with keys, next and reset buttons, and stats)
+        // in VBox (which is the root)
         root.getChildren().addAll
         (expectedText, typedResponse, keyTyped, r0, r1, r2, r3, space, rowNext,
                 rowReset, stats);
@@ -137,8 +150,11 @@ public class App extends Application {
         stage.show();
         typedResponse.requestFocus();
         
+        // Shows how close the user is from finishing the sample texts
         progress.setText((idx + 1) + " of " + sampleTexts.length);
         
+        // Triggered as user click on "Next" button
+        // Clears everything typed and displays the new text to be typed
         next.setOnAction(e -> {
             idx = (idx + 1) % sampleTexts.length;
             expectedText.setText(sampleTexts[idx]);
@@ -148,6 +164,8 @@ public class App extends Application {
             typedResponse.requestFocus();
         });
         
+        // Triggered as user click on "Reset" button
+        // Lands back to the first sample text and clears everything typed
         reset.setOnAction(e -> {
             idx = 0;
             expectedText.setText(sampleTexts[idx]);
@@ -157,22 +175,25 @@ public class App extends Application {
             typedResponse.requestFocus();
         });
         
-        // Displays the key typed
+        // Whenever user types, key changes color
         scene.addEventFilter(KeyEvent.KEY_PRESSED, event -> {
+            // The character typed gets displayed live
             KeyCode keyCode = event.getCode();
             keyTyped.setText(keyCode.getName());
                         
-            // The key becomes green when pressed
             Button btn = keyMap.get(keyCode.getName());
             if (btn != null) {
+                // The key becomes green when pressed
                 keyTyped.setStyle("");
                 btn.setStyle("-fx-background-color: lightgreen;");
             } else {
+                // A key that is not handled will display a red text
                 keyTyped.setText("Not handled");
                 keyTyped.setStyle("-fx-text-fill: red;");     
             }
         });
         
+        // Upon key released, key turns back to its original color
         scene.addEventFilter(KeyEvent.KEY_RELEASED, event -> {
             KeyCode keyCode = event.getCode();
             
