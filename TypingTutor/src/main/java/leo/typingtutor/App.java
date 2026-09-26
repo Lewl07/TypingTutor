@@ -92,7 +92,7 @@ public class App extends Application {
             }
             
             if (key == ".") {
-                Button periodBtn = new Button(",");
+                Button periodBtn = new Button(".");
                 periodBtn.setFocusTraversable(false);
                 keyMap.put(KeyCode.PERIOD.getName(), periodBtn);
                 r3.getChildren().add(periodBtn);
