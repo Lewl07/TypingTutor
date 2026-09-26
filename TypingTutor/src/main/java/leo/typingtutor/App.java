@@ -3,6 +3,7 @@ package leo.typingtutor;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.application.Application;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -46,6 +47,12 @@ public class App extends Application {
         HBox r3 = new HBox(10);
         HBox rowNext = new HBox(10);
         HBox rowReset = new HBox(10);
+        r0.setAlignment(Pos.CENTER);
+        r1.setAlignment(Pos.CENTER);
+        r2.setAlignment(Pos.CENTER);
+        r3.setAlignment(Pos.CENTER);
+        rowNext.setAlignment(Pos.CENTER_LEFT);
+        rowReset.setAlignment(Pos.CENTER_LEFT);
         
         // Instantly shows what user just typed, e.g. typing "A" would
         // display "A"
