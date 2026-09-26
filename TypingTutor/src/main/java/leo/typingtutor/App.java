@@ -50,6 +50,8 @@ public class App extends Application {
         // Instantly shows what user just typed, e.g. typing "A" would
         // display "A"
         Label keyTyped = new Label();
+        
+        // A label that shows how accurate the words typed by user are
         Label stats = new Label();
         
         Button next = new Button("Next");
