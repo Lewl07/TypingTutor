@@ -3,6 +3,7 @@ package leo.typingtutor;
 import java.util.HashMap;
 import java.util.Map;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -157,6 +158,10 @@ public class App extends Application {
         // to display the correctness of the words typed by the user
         typedResponse.textProperty().addListener((obs, oldVal, newVal) ->
                 updateKeystrokeStats(stats, newVal, expectedText.getText()));
+        
+        VBox keyboard = new VBox(6, r0, r1, r2, r3, space);
+        keyboard.setAlignment(Pos.CENTER);
+        keyboard.setPadding(new Insets(10, 0, 10, 0));
         
         // Adding every HBox (rows with keys, next and reset buttons, and stats)
         // in VBox (which is the root)
